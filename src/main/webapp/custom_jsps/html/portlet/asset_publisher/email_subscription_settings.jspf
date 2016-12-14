@@ -1,0 +1,16 @@
+<%
+boolean emailAssetEntryAddedEnabledNew = ParamUtil.getBoolean(request, "preferences--emailAssetEntryAddedEnabled--", AssetPublisherUtil.getEmailAssetEntryAddedEnabled(portletPreferences));
+boolean isCache = GetterUtil.getBoolean(portletPreferences.getValue("iscache", "false"));
+%>
+<liferay-util:buffer var="html">
+	<%@ include file="/html/portlet/asset_publisher/email_subscription_settings.portal.jspf" %>
+</liferay-util:buffer>
+<liferay-util:buffer var="enableEmailSubscriptionHtml"><aui:input id="enableEmailSubscription" label="enable-email-subscription" name="preferences--emailAssetEntryAddedEnabled--" type="checkbox" value="<%= emailAssetEntryAddedEnabledNew %>" /></liferay-util:buffer>
+<liferay-util:buffer var="isCacheHtml">
+	<aui:input type="checkbox" name="preferences--iscache--" checked="<%=isCache %>" />
+</liferay-util:buffer>
+<%
+	html = com.liferay.portal.kernel.util.StringUtil.replace(html, enableEmailSubscriptionHtml, isCacheHtml + enableEmailSubscriptionHtml);
+
+%>
+<%=html %>

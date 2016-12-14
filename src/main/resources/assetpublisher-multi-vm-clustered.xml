@@ -1,0 +1,22 @@
+<ehcache
+	dynamicConfig="true"
+	monitoring="off"
+	name="liferay-multi-vm-clustered"
+	updateCheck="false"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="ehcache.xsd"
+>
+
+	<!--
+	Caches in this file can be clustered and are configured to be clustered.
+	-->
+
+	<cache
+		eternal="false"
+		maxElementsInMemory="10000"
+		name="asset-publisher-cache"
+		overflowToDisk="false"
+		timeToLiveSeconds="3600"
+	>
+	</cache>
+</ehcache>
